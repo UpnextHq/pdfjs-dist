@@ -11772,6 +11772,12 @@ class AnnotationLayer {
         continue;
       }
 
+      // We only support adding annotation of type link to the annotation layer as that is
+      // required for internal links to work
+      if (data.annotationType !== _util.AnnotationType.LINK) {
+        continue;
+      }
+
       const {
         width,
         height

@@ -105,6 +105,11 @@ export type PDFViewerOptions = {
      * mode.
      */
     pageColors?: Object | undefined;
+    /**
+     * - Allows overriding the default scrollbar padding value and therefore reduce
+     * horizontal margins of PDF pages
+     */
+    scrollBarPadding?: number | undefined;
 };
 /**
  * Simple viewer control to display PDF content/pages.

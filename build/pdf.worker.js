@@ -4063,7 +4063,14 @@ class Page {
       }
 
       return Promise.all(annotationPromises).then(function (annotations) {
-        return annotations.filter(annotation => !!annotation);
+        return annotations.filter(annotation => {
+          // We only allow annotations of type LINK, as any annotations returned from here will
+          // ultimately be drawn in the canvas
+          if (annotation.data.annotationType !== _util.AnnotationType.LINK) {
+            return false;
+          }
+          return !!annotation
+        });
       });
     });
     return (0, _util.shadow)(this, "_parsedAnnotations", parsedAnnotations);

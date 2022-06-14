@@ -2108,6 +2108,8 @@ class BaseViewer {
       this.pageColors = null;
     }
 
+    this.scrollBarPadding = options.scrollBarPadding
+
     this.defaultRenderingQueue = !options.renderingQueue;
 
     if (this.defaultRenderingQueue) {
@@ -2820,7 +2822,7 @@ class BaseViewer {
         return;
       }
 
-      let hPadding = _ui_utils.SCROLLBAR_PADDING,
+      let hPadding = this.scrollBarPadding || _ui_utils.SCROLLBAR_PADDING,
           vPadding = _ui_utils.VERTICAL_PADDING;
 
       if (this.isInPresentationMode) {
